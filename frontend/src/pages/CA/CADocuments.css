@@ -1,0 +1,265 @@
+/* Two-pane layout: client sidebar + bill list. Sections group
+   bills by client when the CA selects "All clients". */
+
+.doc-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Sidebar */
+.doc-sidebar {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  padding: 18px 12px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 8px 20px rgba(15, 23, 42, 0.03);
+  position: sticky;
+  top: 96px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+.doc-sidebar__title {
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748B;
+  margin: 4px 12px 12px;
+}
+.doc-client {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: #334155;
+  transition: background 0.15s;
+}
+.doc-client:hover { background: #F8FAFC; }
+.doc-client--active {
+  background: rgba(13, 148, 136, 0.08);
+  color: #0F766E;
+  font-weight: 600;
+}
+.doc-client__name { font-size: 13.5px; }
+.doc-client__owner { font-size: 11.5px; color: #64748B; font-weight: 400; }
+.doc-client__count {
+  margin-left: auto;
+  font-size: 11px;
+  background: rgba(15, 23, 42, 0.06);
+  padding: 1px 8px;
+  border-radius: 999px;
+  color: inherit;
+}
+
+/* Main column */
+.doc-main { min-width: 0; }
+
+.doc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.doc-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: #14243B;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+.doc-sub { color: #64748B; font-size: 13.5px; margin: 0; }
+
+.doc-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  width: 300px;
+  color: #94A3B8;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.doc-search:focus-within { border-color: #0D9488; }
+.doc-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: #14243B;
+}
+.doc-search__clear {
+  border: none;
+  background: rgba(15, 23, 42, 0.08);
+  color: #334155;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.doc-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+.doc-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748B;
+  background: none;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.doc-tab:hover { color: #14243B; }
+.doc-tab--active { color: #fff; background: #14243B; }
+.doc-tab__count {
+  padding: 2px 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  color: inherit;
+}
+.doc-tab--active .doc-tab__count {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+/* Group section */
+.doc-group { margin-bottom: 20px; }
+.doc-group__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #14243B;
+  margin: 0 0 10px;
+  padding-left: 4px;
+}
+.doc-group__count {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(13, 148, 136, 0.12);
+  color: #0F766E;
+}
+
+.doc-table-wrap {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 16px;
+  padding: 8px 20px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 8px 20px rgba(15, 23, 42, 0.03);
+}
+
+.doc-table { width: 100%; border-collapse: collapse; }
+.doc-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748B;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+.doc-table td {
+  padding: 14px 14px;
+  font-size: 13.5px;
+  color: #334155;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+.doc-row { cursor: pointer; transition: background 0.15s; }
+.doc-row:hover { background: rgba(13, 148, 136, 0.03); }
+.doc-table tr:last-child td { border-bottom: none; }
+.doc-muted { color: #64748B; }
+.doc-ago { color: #94A3B8; font-size: 11.5px; margin-left: 2px; }
+
+.doc-open {
+  padding: 6px 14px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: #0D9488;
+  background: rgba(13, 148, 136, 0.08);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.doc-row:hover .doc-open { background: rgba(13, 148, 136, 0.18); }
+
+.doc-empty {
+  padding: 60px 24px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+}
+.doc-empty__title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: #14243B;
+  margin: 0 0 6px;
+}
+.doc-empty__sub { font-size: 13.5px; color: #64748B; margin: 0; }
+.doc-muted { color: #64748B; font-size: 13.5px; }
+
+.ca-pill {
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.ca-pill--uploaded           { background: rgba(245, 158, 11, 0.14); color: #B45309; }
+.ca-pill--pending_review     { background: rgba(45, 212, 191, 0.16); color: #0F766E; }
+.ca-pill--approved           { background: rgba(16, 185, 129, 0.12); color: #047857; }
+.ca-pill--rejected           { background: rgba(239, 68, 68, 0.10);  color: #B91C1C; }
+.ca-pill--reupload_requested { background: rgba(220, 38, 38, 0.12);  color: #991B1B; }
+
+@media (max-width: 900px) {
+  .doc-layout { grid-template-columns: 1fr; }
+  .doc-sidebar { position: static; max-height: none; }
+  .doc-search { width: 100%; }
+}

@@ -1,0 +1,181 @@
+.ch-wrap {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  height: calc(100vh - 140px);
+  min-height: 560px;
+}
+
+.ch-side {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  padding: 22px 18px;
+  overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 8px 20px rgba(15, 23, 42, 0.03);
+}
+.ch-side__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: #14243B;
+  margin: 0 0 16px;
+  padding: 0 6px;
+}
+
+.ch-threads { list-style: none; padding: 0; margin: 0; }
+
+.ch-thread {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.ch-thread:hover { background: rgba(13, 148, 136, 0.04); }
+.ch-thread--active { background: rgba(13, 148, 136, 0.10); }
+
+.ch-thread__avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(135deg, #0D9488, #2DD4BF);
+}
+.ch-thread__avatar--sm { width: 36px; height: 36px; font-size: 13px; }
+
+.ch-thread__meta { flex: 1; min-width: 0; }
+.ch-thread__name {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #14243B;
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ch-thread__preview {
+  font-size: 12px;
+  color: #64748B;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ch-thread__badge {
+  background: #EF4444;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.ch-main {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 8px 20px rgba(15, 23, 42, 0.03);
+}
+
+.ch-main__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+.ch-main__name { font-family: var(--font-display); font-weight: 700; color: #14243B; margin: 0; font-size: 14.5px; }
+.ch-main__sub { font-size: 12px; color: #64748B; margin: 2px 0 0; }
+
+.ch-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(180deg, #F8FAFC, #FFFFFF);
+}
+
+.ch-msg { display: flex; flex-direction: column; max-width: 70%; }
+.ch-msg--ca     { align-self: flex-end; align-items: flex-end; }
+.ch-msg--client { align-self: flex-start; align-items: flex-start; }
+.ch-msg__bubble {
+  padding: 11px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+.ch-msg--ca .ch-msg__bubble {
+  background: linear-gradient(135deg, #0D9488, #14B8A6);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 8px 18px rgba(13, 148, 136, 0.24);
+}
+.ch-msg--client .ch-msg__bubble {
+  background: #F1F5F9;
+  color: #14243B;
+  border-bottom-left-radius: 4px;
+}
+.ch-msg__time { font-size: 11px; color: #94A3B8; margin-top: 4px; }
+
+.ch-input {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+.ch-input input {
+  flex: 1;
+  padding: 12px 18px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #14243B;
+  background: #F8FAFC;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 999px;
+  outline: none;
+}
+.ch-input input:focus { border-color: #0D9488; background: #fff; }
+
+.ch-send {
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #0D9488, #2DD4BF);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(13, 148, 136, 0.28);
+}
+.ch-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.ch-empty, .ch-nothread {
+  color: #64748B;
+  font-size: 13.5px;
+  padding: 20px;
+  text-align: center;
+}
+.ch-nothread { margin: auto; }
+
+@media (max-width: 900px) {
+  .ch-wrap { grid-template-columns: 1fr; }
+  .ch-side { max-height: 200px; }
+}

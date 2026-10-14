@@ -1,0 +1,176 @@
+.cp-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: #14243B;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+.cp-sub { color: #64748B; font-size: 13.5px; margin: 0 0 24px; }
+
+.cp-card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 8px 20px rgba(15, 23, 42, 0.03);
+}
+
+/* Identity strip */
+.cp-card--identity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.05), rgba(45, 212, 191, 0.02)), #fff;
+  border: 1px solid rgba(13, 148, 136, 0.14);
+}
+.cp-avatar {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: #fff;
+  background: linear-gradient(135deg, #0D9488, #2DD4BF);
+  box-shadow: 0 12px 28px rgba(13, 148, 136, 0.28);
+}
+.cp-identity { flex: 1; min-width: 200px; }
+.cp-identity__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #14243B;
+  margin: 0 0 4px;
+}
+.cp-identity__owner { font-size: 13.5px; color: #334155; margin: 0 0 2px; }
+.cp-identity__email { font-size: 13px; color: #64748B; margin: 0; }
+
+.cp-status {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+}
+.cp-status--active   { background: rgba(16, 185, 129, 0.12); color: #047857; }
+.cp-status--pending  { background: rgba(245, 158, 11, 0.14); color: #B45309; }
+.cp-status--rejected { background: rgba(239, 68, 68, 0.10);  color: #B91C1C; }
+
+.cp-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.cp-card__title {
+  font-family: var(--font-display);
+  font-size: 16.5px;
+  font-weight: 700;
+  margin: 0;
+  color: #14243B;
+}
+
+.cp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.cp-field { display: flex; flex-direction: column; gap: 6px; }
+.cp-field--full { grid-column: 1 / -1; }
+.cp-field span {
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+.cp-field input {
+  padding: 11px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #14243B;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 10px;
+  outline: none;
+}
+.cp-field input:focus { border-color: #0D9488; box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12); }
+.cp-field input:disabled { background: #F8FAFC; color: #64748B; }
+.cp-static {
+  padding: 11px 14px;
+  background: #F8FAFC;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #14243B;
+}
+
+.cp-save {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cp-btn {
+  padding: 10px 20px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.cp-btn--primary {
+  color: #fff;
+  background: linear-gradient(135deg, #0D9488, #14B8A6);
+  box-shadow: 0 8px 18px rgba(13, 148, 136, 0.24);
+}
+.cp-btn--primary:hover:not(:disabled) { transform: translateY(-1px); }
+.cp-btn--ghost {
+  color: #14243B;
+  background: #fff;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+.cp-btn--ghost:hover:not(:disabled) { border-color: rgba(13, 148, 136, 0.4); }
+.cp-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Connected CA */
+.cp-firm {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cp-firm__avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: #fff;
+  background: linear-gradient(135deg, #0D9488, #2DD4BF);
+}
+.cp-firm__name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #14243B;
+  margin: 0 0 3px;
+}
+.cp-firm__meta { font-size: 12.5px; color: #64748B; margin: 0; }
+
+.cp-muted { color: #64748B; font-size: 13.5px; }
+
+@media (max-width: 640px) {
+  .cp-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,12 @@
+/* Login reuses the signup panel styles. Only the left panel's copy
+   and one gradient tweak differ, so we share the file instead of
+   duplicating everything. */
+
+@import './CASignup.css';
+
+/* A slightly different tint on the left panel so login and signup are
+   not visually identical, without introducing a new color. */
+.auth-side--login::before {
+  background: radial-gradient(circle at 80% 20%, rgba(45, 212, 191, 0.3), transparent 45%),
+              radial-gradient(circle at 15% 85%, rgba(13, 148, 136, 0.35), transparent 45%);
+}

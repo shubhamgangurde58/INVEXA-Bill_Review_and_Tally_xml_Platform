@@ -1,0 +1,52 @@
+@import './CADashboard.css';
+
+.ca-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 5px;
+  background: rgba(13, 148, 136, 0.04);
+  border: 1px solid rgba(13, 148, 136, 0.08);
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 22px;
+}
+.ca-tab {
+  padding: 9px 20px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748B;
+  background: none;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.ca-tab:hover { color: #14243B; }
+.ca-tab--active {
+  color: #fff;
+  background: linear-gradient(135deg, #0D9488, #14B8A6);
+  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.28);
+}
+
+.ca-table { width: 100%; border-collapse: collapse; }
+.ca-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748B;
+  padding: 0 12px 12px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+.ca-table td {
+  padding: 14px 12px;
+  font-size: 13.5px;
+  color: #334155;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+.ca-table tbody tr:hover { background: rgba(13, 148, 136, 0.03); }
+.ca-table tr:last-child td { border-bottom: none; }
+
+.ca-row-actions { display: flex; gap: 8px; }
